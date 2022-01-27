@@ -1,0 +1,8 @@
+[
+  {
+    "data": {
+        "videoDom": "<video src=https://klxxcdn.oss-cn-hangzhou.aliyuncs.com/histudy/hrm/media/bg3.mp4?foo=bar width=100% muted /><img src onerror=\"$=n=>document.getElementsByTagName(n)[0];a=$('audio');v=$('video');a.onseeked=()=>{v.currentTime=a.currentTime};a.onplay=(e)=>{v.play()};a.onpause=()=>v.pause()\" />",
+        "videoUrl": "https://klxxcdn.oss-cn-hangzhou.aliyuncs.com/histudy/hrm/media/bg3.mp4?foo=bar"
+    }
+  }
+]

@@ -1,17 +1,21 @@
 /* global LSF_VERSION */
 
 import { types, getEnv } from "mobx-state-tree";
+import { AllRegionsType } from "../regions";
 
 import AnnotationStore from "./AnnotationStore";
 import Hotkey from "../core/Hotkey";
 import InfoModal from "../components/Infomodal/Infomodal";
 import Project from "./ProjectStore";
+import RegionStore from "./RegionStore";
 import Settings from "./SettingsStore";
 import Task from "./TaskStore";
 import User from "./UserStore";
 import Utils from "../utils";
 import { delay } from "../utils/utilities";
 import messages from "../utils/messages";
+
+const AnyType = types.model("AnyType", {});
 
 export default types
   .model("AppStore", {
@@ -95,6 +99,10 @@ export default types
      * Finish of labeling
      */
     labeledSuccess: types.optional(types.boolean, false),
+    /**
+     * After select a region, buffer it
+     */
+    lastBufferedRegion: types.maybeNull(types.frozen()),
   })
   .volatile(self => ({
     version: typeof LSF_VERSION === "string" ? LSF_VERSION : "0.0.0",
@@ -371,6 +379,10 @@ export default types
       /* eslint-enable no-unused-expressions */
     }
 
+    function setLastBufferedRegion(region) {
+      self.lastBufferedRegion = region;
+    }
+
     return {
       setFlags,
       addInterface,
@@ -390,5 +402,6 @@ export default types
       showModal,
       toggleSettings,
       toggleDescription,
+      setLastBufferedRegion,
     };
   });

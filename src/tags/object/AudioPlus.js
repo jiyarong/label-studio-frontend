@@ -187,17 +187,58 @@ const Model = types
       }
 
       const states = self.getAvailableStates();
-      if (states.length === 0) {
-        ws_region.remove && ws_region.remove();
-        return;
+      let createdResult;
+      console.log({ createdResult });
+      if (true || states.length === 0) {
+        // ws_region.remove && ws_region.remove();
+        let tempResult = {
+          onMouseOver: e => {
+            createdResult && createdResult.onMouseOver(e);
+          },
+          onMouseLeave: e => {
+            createdResult && createdResult.onMouseLeave(e);
+          },
+          onClick: e => {
+            createdResult && createdResult.onClick(e);
+          },
+          onUpdateEnd: e => {
+            console.log({ e });
+            if (createdResult) {
+              createdResult.onUpdateEnd(e);
+            } else {
+              self.annotation.unselectAll();
+              self.store.setLastBufferedRegion({
+                ...ws_region,
+                ok: () => {
+                  const control = self.activeStates()[0];
+                  console.log({ control });
+                  if (!control) {
+                    ws_region.remove && ws_region.remove();
+                    self.store.setLastBufferedRegion(undefined);
+                    return;
+                  }
+                  const labels = { [control.valueType]: control.selectedValues() };
+                  createdResult = self.annotation.createResult(ws_region, labels, control, self);
+                  createdResult._ws_region = ws_region;
+                  createdResult.updateAppearenceFromState();
+                  createdResult.onUpdateEnd(e);
+                },
+                cancel: () => {
+                  ws_region.remove && ws_region.remove();
+                },
+              });
+            }
+          },
+        };
+        return tempResult;
       }
 
-      const control = self.activeStates()[0];
-      const labels = { [control.valueType]: control.selectedValues() };
-      const r = self.annotation.createResult(ws_region, labels, control, self);
-      r._ws_region = ws_region;
-      r.updateAppearenceFromState();
-      return r;
+      // const control = self.activeStates()[0];
+      // const labels = { [control.valueType]: control.selectedValues() }
+      // const r = self.annotation.createResult(ws_region, labels, control, self);
+      // r._ws_region = ws_region;
+      // r.updateAppearenceFromState();
+      // return r;
     },
 
     /**
@@ -241,6 +282,8 @@ const Model = types
 const AudioPlusModel = types.compose("AudioPlusModel", TagAttrs, Model, ProcessAttrsMixin, ObjectBase);
 
 const HtxAudioView = ({ store, item }) => {
+  window.__item = item;
+  window.__store = store;
   if (!item._value) return null;
 
   return (

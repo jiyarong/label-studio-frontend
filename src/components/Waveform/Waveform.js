@@ -314,14 +314,14 @@ export default class Waveform extends React.Component {
        * Mouse enter on region
        */
       this.wavesurfer.on("region-mouseenter", reg => {
-        reg._region.onMouseOver();
+        reg._region && reg._region.onMouseOver();
       });
 
       /**
        * Mouse leave on region
        */
       this.wavesurfer.on("region-mouseleave", reg => {
-        reg._region.onMouseLeave();
+        reg._region && reg._region.onMouseLeave();
       });
 
       /**
@@ -335,7 +335,13 @@ export default class Waveform extends React.Component {
         reg.color = region.selectedregionbg;
 
         reg.on("click", () => region.onClick(self.wavesurfer));
-        reg.on("update-end", () => region.onUpdateEnd(self.wavesurfer));
+        reg.on("update-end", () => {
+          if (region.real) {
+            region.real.onUpdateEnd(self.wavesurfer);
+          } else {
+            region.onUpdateEnd(self.wavesurfer);
+          }
+        });
 
         reg.on("dblclick", e => {
           window.setTimeout(function() {

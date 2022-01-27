@@ -93,6 +93,7 @@ const Model = types
         "HyperTextLabelsModel",
         "TimeSeriesLabelsModel",
         "ParagraphLabelsModel",
+        "DrawerLabelsModel",
       ]);
     },
   }))
@@ -110,6 +111,8 @@ const Model = types
 
       // one more check if that label can be selected
       if (!self.annotation.editable) return;
+
+      console.log({ parent: self.parent, region }, self.annotation);
 
       // don't select if it can not be used
       if (!self.selected && !self.canBeUsed()) {

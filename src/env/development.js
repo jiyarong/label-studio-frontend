@@ -19,6 +19,7 @@ import { Dialogue } from "../examples/phrases"; // eslint-disable-line no-unused
 import { AudioClassification } from "../examples/audio_classification"; // eslint-disable-line no-unused-vars
 import { AudioRegions } from "../examples/audio_regions"; // eslint-disable-line no-unused-vars
 import { TranscribeAudio } from "../examples/transcribe_audio"; // eslint-disable-line no-unused-vars
+import { MyExample } from "../examples/my_example"; // eslint-disable-line no-unused-vars
 
 /**
  * Image
@@ -48,7 +49,29 @@ import { TimeSeries } from "../examples/timeseries"; // eslint-disable-line no-u
  */
 // import { AllTypes } from "../examples/all_types"; // eslint-disable-line no-unused-vars
 
-const data = TranscribeAudio;
+const data = MyExample;
+// const data = {
+//   config: `<View>
+//     <HyperText name="video" value="$videoDom"/>
+//       <Labels name="label" toName="audio" choice="multiple">
+//       <Label value='是否表达流畅01(3598)(0)' background='#88ffee'>是否表达流畅01(3598)(0)</Label>
+//       <Label value='是否表达流畅02(3599)(0)' background='#ffd6a9'>是否表达流畅02(3599)(0)</Label>
+//       <Label value='音视频标注(3605)(0)' background='#ff8f8f'>音视频标注(3605)(0)</Label>
+//       <Label value='音视频标注1(3606)(0)' background='#c5c5ff'>音视频标注1(3606)(0)</Label>
+//       <Label value='音视频标注2(3607)(0)' background='#8af9c3'>音视频标注2(3607)(0)</Label>
+//       <Label value='音视频标注3(3608)(0)' background='#7ca2f7'>音视频标注3(3608)(0)</Label>
+//       <Label value='音视频标注4(3609)(0)' background='#ffb3f4'>音视频标注4(3609)(0)</Label>
+//       <Label value='音视频标注5(3610)(0)' background='#ffec9c'>音视频标注5(3610)(0)</Label>
+//       </Labels>
+//     <AudioPlus name="audio" value="$videoUrl" speed="false"/>
+// </View>`,
+//   interfaces: ['side-column', 'controls', 'update', 'submit'],
+//   task: [{
+//     data: "{\"videoDom\":\"<video src=https://annotator-test-1256119856.cos.ap-shanghai.myqcloud.com/779896058332094464_zhihu2018_hd_2.mp4?sign=q-sign-algorithm%3Dsha1%26q-ak%3DAKIDFYaQAeIgJfk25Zl7JK5aFeZMNAi16oJY%26q-sign-time%3D1643010158%3B1643013758%26q-key-time%3D1643010158%3B1643013758%26q-header-list%3D%26q-url-param-list%3D%26q-signature%3D34358f468de9fef69adf34e529e511b9bf04c814 width=100% muted /><img src onerror=\\\"$=n=>document.getElementsByTagName(n)[0];a=$('audio');v=$('video');a.onseeked=()=>{v.currentTime=a.currentTime};a.onplay=(e)=>{v.play()};a.onpause=()=>v.pause()\\\" />\",\"videoUrl\":\"https://annotator-test-1256119856.cos.ap-shanghai.myqcloud.com/779896058332094464_zhihu2018_hd_2.mp4?sign=q-sign-algorithm%3Dsha1%26q-ak%3DAKIDFYaQAeIgJfk25Zl7JK5aFeZMNAi16oJY%26q-sign-time%3D1643010158%3B1643013758%26q-key-time%3D1643010158%3B1643013758%26q-header-list%3D%26q-url-param-list%3D%26q-signature%3D34358f468de9fef69adf34e529e511b9bf04c814\"}"
+//   }],
+//   // annotations: [{result: Array(0), type: 'annotation'}],
+//   user: {pk: 1, firstName: 'James', lastName: 'Dean'}
+// };
 
 /**
  * Get current config

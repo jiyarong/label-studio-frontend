@@ -5,6 +5,7 @@ import { HyperTextLabelsModel } from "./HyperTextLabels";
 import { KeyPointLabelsModel } from "./KeyPointLabels";
 import { KeyPointModel } from "./KeyPoint";
 import { LabelsModel } from "./Labels";
+import { LabelsModel as DrawerLabelsModel } from "./DrawerLabels";
 import { ListModel } from "./List";
 import { PairwiseModel } from "./Pairwise";
 import { PolygonLabelsModel } from "./PolygonLabels";
@@ -50,4 +51,5 @@ export {
   RelationsModel,
   RelationModel,
   ParagraphLabelsModel,
+  DrawerLabelsModel,
 };

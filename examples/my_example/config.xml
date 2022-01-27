@@ -1,0 +1,14 @@
+<View>
+  <HyperText name="video" value="$videoDom"/>
+  <Labels name="label" toName="audio" choice="multiple">
+    <Label value='是否表达流畅01(3598)(0)' background='#88ffee'>是否表达流畅01(3598)(0)</Label>
+    <Label value='是否表达流畅02(3599)(0)' background='#ffd6a9'>是否表达流畅02(3599)(0)</Label>
+    <Label value='音视频标注(3605)(0)' background='#ff8f8f'>音视频标注(3605)(0)</Label>
+    <Label value='音视频标注1(3606)(0)' background='#c5c5ff'>音视频标注1(3606)(0)</Label>
+    <Label value='音视频标注2(3607)(0)' background='#8af9c3'>音视频标注2(3607)(0)</Label>
+    <Label value='音视频标注3(3608)(0)' background='#7ca2f7'>音视频标注3(3608)(0)</Label>
+    <Label value='音视频标注4(3609)(0)' background='#ffb3f4'>音视频标注4(3609)(0)</Label>
+    <Label value='音视频标注5(3610)(0)' background='#ffec9c'>音视频标注5(3610)(0)</Label>
+  </Labels>
+  <AudioPlus name="audio" value="$videoUrl" speed="false"/>
+</View>
